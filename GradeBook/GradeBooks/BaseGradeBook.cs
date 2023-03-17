@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Linq.Expressions;
 
 namespace GradeBook.GradeBooks
 {
@@ -210,8 +211,10 @@ namespace GradeBook.GradeBooks
             }
         }
 
+        
         public virtual char GetLetterGrade(double averageGrade)
         {
+          
             if (averageGrade >= 90)
                 return 'A';
             else if (averageGrade >= 80)
@@ -222,6 +225,10 @@ namespace GradeBook.GradeBooks
                 return 'D';
             else
                 return 'F';
+            
+            
+              
+            
         }
 
         /// <summary>
@@ -272,5 +279,7 @@ namespace GradeBook.GradeBooks
             
             return JsonConvert.DeserializeObject(json, gradebook);
         }
+
+        
     }
 }
